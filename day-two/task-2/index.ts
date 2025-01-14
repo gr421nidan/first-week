@@ -1,26 +1,28 @@
 //преобразование данных
-type SourceData = {
+interface Contact {
+    phone: string;
+    email: string;
+}
+interface Address{
+    city: string;
+    zip: string;
+}
+interface SourceData{
     user_id: string;
     full_name: string;
-    contact: {
-        phone: string;
-        email: string;
-    };
-    address: {
-        city: string;
-        zip: string;
-    };
+    contact: Contact;
+    address: Address;
     is_active: boolean;
-};
+}
 
-type TargetData = {
+interface TargetData {
     id: string;
     name: string;
     phone: string;
     email: string;
     location: string;
     status: string;
-};
+}
 
 const source: SourceData = {
     user_id: "123",

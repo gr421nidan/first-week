@@ -1,10 +1,10 @@
 //создание объекта
-type SourceData = {
+interface SourceData {
     title: string;
     year: number;
     author: string;
 }
-type TargetData = {
+interface TargetData {
     title: string;
     year: number;
     author: string;
@@ -18,8 +18,11 @@ function createBook(source: SourceData): TargetData {
         year: source.year,
         author: source.author,
         preview: `Название: ${source.title}, Автор: ${source.author}, Год: ${source.year}`,
-        url: `www.someurl.com/preview?title=${encodeURIComponent(source.title)}&year=${source.year}&author=${encodeURIComponent(source.author)}`,
-        //посмотрела в инетернете, как убрать лишние пробелы, для формирования url - encodeURIComponent
+        url: `www.someurl.com/preview?${new URLSearchParams({
+            title: source.title,
+            year: source.year.toString(),
+            author: source.author
+        }).toString()}`
     };
     return target
 }
