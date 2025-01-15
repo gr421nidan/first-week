@@ -7,12 +7,13 @@ interface Users {
     email: string,
     location: string,
     status: "active" | "delete",
-};
+}
+
 const fakeData: Users[] = [
     {
         id: generateUUID(),
         name: "Dasha",
-        phone: "+7900000000",
+        phone: "+79000000000",
         email: "example.example@example.com",
         location: "Tomsk",
         status: "active",
@@ -20,7 +21,7 @@ const fakeData: Users[] = [
     {
         id: generateUUID(),
         name: "Masha",
-        phone: "+7900000001",
+        phone: "+79000000001",
         email: "example.example@example.com",
         location: "Omsk",
         status: "delete",
